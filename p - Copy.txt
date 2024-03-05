@@ -1,0 +1,209 @@
+// Online C compiler to run C program online
+#include <bits/stdc++.h>
+using namespace std;
+
+bool palindrome(string s,int st,int en){
+    while(st<=en){
+        if(s[st]!=s[en]){
+            return false;
+        }
+        st++;
+        en--;
+    }
+    return true;
+}
+
+int main() {
+    string s="area";
+    int st=0;
+    int en = s.length();
+    
+    if(palindrome(s,st,en-1)){
+        cout<<s<<" String is palindrome";
+    }else{
+        cout<<"String is not palindrome";
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    string str = "Abc123";
+    int cnt =0;
+    for(int i=0;i<str.length();i++){
+        char ch = str[i];
+        if(ch>='a' && ch<='z' || ch>='A' && ch<='Z'){
+            continue;
+        }else{
+            cnt+=1;
+        }
+    }
+    
+    cout<<"The number of numerical digits is: "<<cnt;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string str = "Abhishek";
+    int n = str.length();
+    unordered_map<char,int>mapp;
+    
+    for(int i =0;i<n;i++){
+        mapp[str[i]]++;
+    }
+    
+    for(auto it: mapp){
+        cout<<it.first<<" "<<it.second<<" ";
+        cout<<endl;
+    }
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    string str = "-1 + (6 + 3)";
+    int n = str.length();
+    int sum =0;
+    stack<int>st;
+    st.push(str[0]);
+    
+    for(int i =0;i<n;i++){
+        char ch = str[i];
+        if(ch>='a' && ch<='z' || ch>='A' && ch<='Z'){
+            continue;
+        }else{
+           if(!st.empty()){
+            st.push(ch);
+            if(st.top()=='(' || st.top()==')'){
+                st.pop();
+            }else if(st.top() =='+'){
+                st.pop();
+                sum+=st.top();
+            }else if(st.top()=='-'){
+                st.pop();
+                sum-=st.top();
+            }else if(st.top()>='0' && st.top()<='9'){
+                sum+=st.top();
+                
+                st.pop();
+            }
+           }
+        }
+    }
+    
+    cout<<sum;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

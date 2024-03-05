@@ -1,0 +1,314 @@
+// Online C compiler to run C program online
+#include <bits/stdc++.h>
+using namespace std;
+
+bool palindrome(string s,int st,int en){
+    while(st<=en){
+        if(s[st]!=s[en]){
+            return false;
+        }
+        st++;
+        en--;
+    }
+    return true;
+}
+
+int main() {
+    string s="area";
+    int st=0;
+    int en = s.length();
+    
+    if(palindrome(s,st,en-1)){
+        cout<<s<<" String is palindrome";
+    }else{
+        cout<<"String is not palindrome";
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Online C++ compiler to run C++ program online
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string str = "Abhishek";
+    int n = str.length();
+    unordered_map<char,int>mapp;
+    
+    for(int i =0;i<n;i++){
+        mapp[str[i]]++;
+    }
+    
+    for(auto it: mapp){
+        cout<<it.first<<" "<<it.second<<" ";
+        cout<<endl;
+    }
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    string str = "-1 + (6 + 3)";
+    int n = str.length();
+    int sum =0;
+    stack<int>st;
+    st.push(str[0]);
+    
+    for(int i =0;i<n;i++){
+        char ch = str[i];
+        if(ch>='a' && ch<='z' || ch>='A' && ch<='Z'){
+            continue;
+        }else{
+           if(!st.empty()){
+            st.push(ch);
+            if(st.top()=='(' || st.top()==')'){
+                st.pop();
+            }else if(st.top() =='+'){
+                st.pop();
+                sum+=st.top();
+            }else if(st.top()=='-'){
+                st.pop();
+                sum-=st.top();
+            }else if(st.top()>='0' && st.top()<='9'){
+                sum+=st.top();
+                
+                st.pop();
+            }
+           }
+        }
+    }
+    
+    cout<<sum;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// C++ implementation to find the 
+// length of longest palindromic
+// sub-string using Recursion
+
+#include <iostream>
+using namespace std;
+
+// Function to find maximum
+// of the two variables
+int max(int x, int y)
+{
+	return (x > y) ? x : y;
+}
+
+// Function to find the longest
+// palindromic substring : Recursion
+int longestPalindromic(string str, 
+			int i, int j, int count)
+{
+	
+	// Base condition when the start
+	// index is greater than end index
+	if (i > j)
+		return count;
+	
+	// Base condition when both the 
+	// start and end index are equal
+	if (i == j)
+		return (count + 1);
+		
+	// Condition when corner characters
+	// are equal in the string
+	if (str[i] == str[j]) {
+		
+		// Recursive call to find the
+		// longest Palindromic string
+		// by excluding the corner characters
+		count = longestPalindromic(str, i + 1, 
+				j - 1, count + 2);
+		return max(count, 
+		max(longestPalindromic(str, i + 1, j, 0), 
+		longestPalindromic(str, i, j - 1, 0)));
+	}
+	
+	// Recursive call to find the 
+	// longest Palindromic string
+	// by including one corner 
+	// character at a time
+	return max(
+	longestPalindromic(str, i + 1, j, 0), 
+	longestPalindromic(str, i, j - 1, 0));
+}
+
+// Function to find the longest 
+// palindromic sub-string
+int longest_palindromic_substr(string str)
+{
+	// Utility function call
+	return longestPalindromic(str, 0, 
+				str.length() - 1, 0);
+}
+
+// Driver Code
+int main()
+{
+	string str = "aaaabbaa";
+	
+	// Function Call
+	cout << longest_palindromic_substr(str);
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
